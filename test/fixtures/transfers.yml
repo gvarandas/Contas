@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  usr_pagante: 1
+  usr_destino: 1
+  valor: 1.5
+
+two:
+  usr_pagante: 1
+  usr_destino: 1
+  valor: 1.5

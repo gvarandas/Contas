@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  valor: 1.5
+  recorrente: 1
+  mes_ref: 1
+  ano_ref: 1
+  usr_pag: 1
+
+two:
+  nome: MyString
+  valor: 1.5
+  recorrente: 1
+  mes_ref: 1
+  ano_ref: 1
+  usr_pag: 1

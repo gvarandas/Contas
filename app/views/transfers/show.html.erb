@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Usr pagante:</strong>
+  <%= @transfer.usr_pagante %>
+</p>
+
+<p>
+  <strong>Usr destino:</strong>
+  <%= @transfer.usr_destino %>
+</p>
+
+<p>
+  <strong>Valor:</strong>
+  <%= @transfer.valor %>
+</p>
+
+<%= link_to 'Edit', edit_transfer_path(@transfer) %> |
+<%= link_to 'Back', transfers_path %>

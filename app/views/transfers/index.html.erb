@@ -1,0 +1,31 @@
+<h1>Listing transfers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Usr pagante</th>
+      <th>Usr destino</th>
+      <th>Valor</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @transfers.each do |transfer| %>
+      <tr>
+        <td><%= transfer.usr_pagante %></td>
+        <td><%= transfer.usr_destino %></td>
+        <td><%= transfer.valor %></td>
+        <td><%= link_to 'Show', transfer %></td>
+        <td><%= link_to 'Edit', edit_transfer_path(transfer) %></td>
+        <td><%= link_to 'Destroy', transfer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Transfer', new_transfer_path %>
