@@ -4,7 +4,7 @@ class DespesasController < ApplicationController
   # GET /despesas
   # GET /despesas.json
   def index
-    @despesas = Despesa.all
+    @despesas = Despesa.includes(:user).order(:ano_ref, :mes_ref)
   end
 
   # GET /despesas/1
@@ -28,7 +28,7 @@ class DespesasController < ApplicationController
 
     respond_to do |format|
       if @despesa.save
-        format.html { redirect_to @despesa, notice: 'Despesa was successfully created.' }
+        format.html { redirect_to despesas_path, notice: 'Despesa criada com sucesso  .' }
         format.json { render action: 'show', status: :created, location: @despesa }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class DespesasController < ApplicationController
   def update
     respond_to do |format|
       if @despesa.update(despesa_params)
-        format.html { redirect_to @despesa, notice: 'Despesa was successfully updated.' }
+        format.html { redirect_to despesas_path, notice: 'A Despesa "'+@despesa.nome+'" ('+sprintf('%02d',@despesa.mes_ref)+'/'+@despesa.ano_ref.to_s+') foi alterada com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

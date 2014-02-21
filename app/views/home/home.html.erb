@@ -1,0 +1,46 @@
+<h1>Página Principal</h1>
+
+<nav>
+	<ul>
+		<li><%= link_to 'Usuários', users_path %></li>
+		<li><%= link_to 'Despesas', despesas_path %></li>
+		<li><%= link_to 'Transferências', transfers_path %></li>
+		<li><%= link_to 'Gerar Novo Mês', :controller => 'home', :action => 'novoMes' %></li>
+	</ul>
+</nav>
+
+<% @anos.each do |ano|%>
+	<div class='tables'>
+		<table class='home-table'>
+			
+			<thead>
+				<th class='year-head' colspan='4'>
+					<%= ano.ano_ref.to_s %>
+				</th>
+				<% for i in 1..12 %>
+					<tr>
+						<th class='month-head' colspan='4'><%= Date::MONTHNAMES[i] %></th>
+					</tr>
+					<tr>
+						<th>Despesa</th>
+						<th>Valor</th>
+						<th>Pagante</th>
+						<th>Editar</th>
+					</tr>
+			</thead>
+
+			<tbody>
+					<% @despesas.where(:ano_ref => ano.ano_ref, :mes_ref => i).each do |d| %>
+						<tr>
+							<td><%= d.nome %></td>
+							<td><%= 'R$ '+d.valor.to_s %></td>
+							<td><%= d.usr_pag.nil? ?  'Sem Usuário Pagante' : d.user.nome %></td>
+							<td><%= link_to 'Editar', edit_despesa_path(d) %></td>
+						</tr>
+					<% end %>
+				<% end %>
+			</tbody>
+
+		</table>
+	</div>
+<% end %>

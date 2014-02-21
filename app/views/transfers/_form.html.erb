@@ -1,4 +1,4 @@
-<%= form_for(@transfer) do |f| %>
+<%= simple_form_for(@transfer) do |f| %>
   <% if @transfer.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@transfer.errors.count, "error") %> prohibited this transfer from being saved:</h2>
@@ -12,16 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :usr_pagante %><br>
-    <%= f.number_field :usr_pagante %>
+    <%= f.input :usr_pagante, collection: User.all, label_method: :nome, label: 'Pagante' %>
   </div>
   <div class="field">
-    <%= f.label :usr_destino %><br>
-    <%= f.number_field :usr_destino %>
+    <%= f.input :usr_destino, collection: User.all, label_method: :nome, label: 'Destino' %>
   </div>
   <div class="field">
-    <%= f.label :valor %><br>
-    <%= f.text_field :valor %>
+    <%= f.input :valor %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -1,0 +1,35 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+nav ul li{
+	display: inline-block;
+}
+
+table{
+	width: 60%;
+	border: 2px solid black;
+}
+
+th, td{
+	border: 1px solid black;
+	text-align: center;
+}
+
+.home-table th, td{
+	width: 25%;
+}
+
+th {
+	colspan: 4;
+}
+
+.month-head {
+	colspan: 4;
+	background-color: #D8D8D8;
+}
+
+.year-head {
+	colspan: 4;
+	background-color: #BDBDBD;
+}

@@ -1,0 +1,15 @@
+<h1> Despesas que já possuem Pagante </h1>
+
+<% @despesas.each do |d| %>
+	<div>
+	<%= "Despesa: "+d.nome %><br>
+	<%= "Valor: R$ "+d.valor.to_s %><br>
+	<%= "Mês: "+d.mes_ref.to_s %><br>
+	<%= "Ano: "+d.ano_ref.to_s %><br>
+	<%= "Recorrente: "+(d.recorrente ? 'Sim': 'Não') %><br>
+	<%= d.usr_pag.nil? ? 'Sem usuário Pagante' : "Usuário: "+d.user.nome %>
+	</div>
+	<br>
+<% end %>
+
+<%= link_to 'Home', root_path %>

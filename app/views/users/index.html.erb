@@ -1,4 +1,4 @@
-<h1>Listing users</h1>
+<h1>Usuários</h1>
 
 <table>
   <thead>
@@ -7,9 +7,6 @@
       <th>Banco</th>
       <th>Agencia</th>
       <th>Conta</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -20,9 +17,8 @@
         <td><%= user.banco %></td>
         <td><%= user.agencia %></td>
         <td><%= user.conta %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Editar', edit_user_path(user) %></td>
+        <td><%= link_to 'Deletar', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +26,5 @@
 
 <br>
 
-<%= link_to 'New User', new_user_path %>
+<%= link_to 'Novo Usuário', new_user_path %><br>
+<%= link_to 'Home', root_path %>

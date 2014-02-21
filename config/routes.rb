@@ -1,8 +1,11 @@
 Contas::Application.routes.draw do
+
+  root to: "home#home"
+
+  get "home/help"
+  get "home/novoMes"
   resources :transfers
-
   resources :despesas
-
   resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.

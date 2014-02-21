@@ -1,32 +1,30 @@
-<h1>Listing despesas</h1>
+<h1>Despesas</h1>
+
+<p id="notice"><%= notice %></p>
 
 <table>
   <thead>
     <tr>
       <th>Nome</th>
       <th>Valor</th>
-      <th>Recorrente</th>
-      <th>Mes ref</th>
-      <th>Ano ref</th>
-      <th>Usr pag</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Recorrente?</th>
+      <th>Mês Referência</th>
+      <th>Ano Referência</th>
+      <th>Pagante</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @despesas.each do |despesa| %>
+    <% @despesas.each do |d| %>
       <tr>
-        <td><%= despesa.nome %></td>
-        <td><%= despesa.valor %></td>
-        <td><%= despesa.recorrente %></td>
-        <td><%= despesa.mes_ref %></td>
-        <td><%= despesa.ano_ref %></td>
-        <td><%= despesa.usr_pag %></td>
-        <td><%= link_to 'Show', despesa %></td>
-        <td><%= link_to 'Edit', edit_despesa_path(despesa) %></td>
-        <td><%= link_to 'Destroy', despesa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= d.nome %></td>
+        <td>R$: <%= d.valor %></td>
+        <td><%= d.recorrente? ? 'Sim' : 'Não' %></td>
+        <td><%= Date::MONTHNAMES[d.mes_ref] %></td>
+        <td><%= d.ano_ref %></td>
+        <td><%= d.usr_pag.nil? ?  'Sem Usuário Pagante' : d.user.nome %></td>
+        <td><%= link_to 'Editar', edit_despesa_path(d) %></td>
+        <td><%= link_to 'Deletar', d, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +32,5 @@
 
 <br>
 
-<%= link_to 'New Despesa', new_despesa_path %>
+<%= link_to 'Nova Despesa', new_despesa_path %><br>
+<%= link_to 'Home', root_path %>
